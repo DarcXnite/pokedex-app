@@ -67,7 +67,7 @@ function App() {
 				<SearchBar searchPokemon={searchPokemon} allPokemon={allPokemon} />
 
 				<Switch>
-					<Route exact path="/">
+					<Route exact path="/pokedex-app">
 						<Pagination
 							prevUrl={prevUrl}
 							nextUrl={nextUrl}
