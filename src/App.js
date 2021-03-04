@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
@@ -19,7 +19,6 @@ function App() {
 	);
 	const [nextUrl, setNextUrl] = useState("");
 	const [prevUrl, setPrevUrl] = useState("");
-	const [searchedPokemon, setSearchedPokemon] = useState("");
 	const [isLoading, setIsLoading] = useState(false);
 
 	useEffect(() => {
@@ -56,18 +55,14 @@ function App() {
 		setCurrentUrl(nextUrl);
 	};
 
-	const searchPokemon = (userInput) => {
-		setSearchedPokemon(userInput);
-	};
-
 	return (
 		<div>
 			<Router>
 				<Heading />
-				<SearchBar searchPokemon={searchPokemon} allPokemon={allPokemon} />
+				<SearchBar allPokemon={allPokemon} />
 
 				<Switch>
-					<Route exact path="/">
+					<Route exact path="/pokedex-app">
 						<Pagination
 							prevUrl={prevUrl}
 							nextUrl={nextUrl}
