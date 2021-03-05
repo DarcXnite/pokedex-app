@@ -58,14 +58,11 @@ function App() {
 	return (
 		<div>
 			<Router basename="/">
-				<Link to="/">
-					<Heading />
-				</Link>
-				
+				<Heading />
 				<SearchBar allPokemon={allPokemon} />
 
 				<Switch>
-					<Route exact path={process.env.PUBLIC_URL + '/'}>
+					<Route exact path={process.env.PUBLIC_URL + "/"}>
 						<Pagination
 							prevUrl={prevUrl}
 							nextUrl={nextUrl}
