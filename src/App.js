@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Route, Switch, Link } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
@@ -58,11 +58,14 @@ function App() {
 	return (
 		<div>
 			<Router basename="/">
-				<Heading />
+				<Link to="/">
+					<Heading />
+				</Link>
+				
 				<SearchBar allPokemon={allPokemon} />
 
 				<Switch>
-					<Route exact path="/">
+					<Route exact path={process.env.PUBLIC_URL + '/'}>
 						<Pagination
 							prevUrl={prevUrl}
 							nextUrl={nextUrl}
