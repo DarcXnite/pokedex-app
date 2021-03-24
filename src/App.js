@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { HashRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
@@ -7,13 +7,14 @@ import "./App.css";
 import Heading from "./components/Heading";
 import PokemonList from "./components/PokemonList/PokemonList";
 import axios from "axios";
-import SearchBar from "./components/SearchBar";
+import SearchBar from "./components/SearchBar/SearchBar";
 import Pagination from "./components/Pagination";
 import PokemonCard from "./components/PokemonCard/PokemonCard";
 
 function App() {
 	const [pokemons, setPokemons] = useState([]);
 	const [allPokemon, setAllPokemon] = useState([]);
+	const [pokemonNamesList, setPokemonNamesList] = useState([]);
 	const [currentUrl, setCurrentUrl] = useState(
 		"https://pokeapi.co/api/v2/pokemon?limit=24&offset=0"
 	);
@@ -40,8 +41,10 @@ function App() {
 			const res = await axios.get(
 				"https://pokeapi.co/api/v2/pokemon?limit=1118&offset=0"
 			);
-			const allPokemonNames = res.data.results.map((pokemon) => pokemon);
-			setAllPokemon(allPokemonNames);
+			const allPokemonNames = res.data.results.map((pokemon) => pokemon.name);
+			const allPokemonsList = res.data.results.map(pokemon => pokemon);
+			setAllPokemon(allPokemonsList);
+			setPokemonNamesList(allPokemonNames);
 		};
 
 		getAllPokemon();
@@ -59,10 +62,10 @@ function App() {
 		<div>
 			<Router basename="/">
 				<Heading />
-				<SearchBar allPokemon={allPokemon} />
+				<SearchBar allPokemon={allPokemon} pokemonNamesList={pokemonNamesList} />
 
 				<Switch>
-					<Route exact path={process.env.PUBLIC_URL + "/"}>
+					<Route exact path={"/"}>
 						<Pagination
 							prevUrl={prevUrl}
 							nextUrl={nextUrl}
@@ -77,7 +80,7 @@ function App() {
 							gotoNextUrl={gotoNextUrl}
 						/>
 					</Route>
-					<Route exact path="/:name/:pokeIndex">
+					<Route exact path="/pokemon/:pokeIndex">
 						<PokemonCard />
 					</Route>
 				</Switch>

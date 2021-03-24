@@ -7,11 +7,15 @@ const PokemonList = ({ pokemons, isLoading }) => {
 			key={pokemon.name}
 			name={pokemon.name}
 			url={pokemon.url}
-            isLoading={isLoading}
+			isLoading={isLoading}
 		/>
 	));
 
-	return <div className='row mt-5'>{pokemonList}</div>;
+	return (
+		<div className="container">
+			<div className="row mt-5">{pokemonList}</div>
+		</div>
+	);
 };
 
 export default PokemonList;

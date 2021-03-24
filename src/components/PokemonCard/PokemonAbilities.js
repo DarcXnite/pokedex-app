@@ -7,7 +7,14 @@ const PokemonAbilities = ({ name, url }) => {
 	useEffect(() => {
 		const getDescription = async () => {
 			const res = await axios.get(url);
-			setAbilityDescription(res.data.flavor_text_entries[0].flavor_text);
+			let description = "";
+			res.data.flavor_text_entries.some((text) => {
+				if (text.language.name === "en") {
+					description = text.flavor_text;
+				}
+				return description;
+			});
+			setAbilityDescription(description);
 		};
 		getDescription();
 	});
@@ -19,7 +26,7 @@ const PokemonAbilities = ({ name, url }) => {
 		.join(" ");
 
 	return (
-		<div>
+		<div className="text-center">
 			<h5>{abilityName}</h5>
 			<p>{abilityDescription}</p>
 		</div>

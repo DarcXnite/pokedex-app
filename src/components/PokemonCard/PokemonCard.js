@@ -17,11 +17,11 @@ const PokemonCard = () => {
 	const [types, setTypes] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
 
-	const { pokeIndex, name } = useParams();
+	const { pokeIndex } = useParams();
 	const pokeUrl = `https://pokeapi.co/api/v2/pokemon/${pokeIndex}/`;
 	const pokeImg = `https://pokeres.bastionbot.org/images/pokemon/${pokeIndex}.png`;
 
-	let location = useLocation()
+	let location = useLocation();
 
 	useEffect(() => {
 		setIsLoading(true);
@@ -35,7 +35,7 @@ const PokemonCard = () => {
 				let description = "";
 				res.data.flavor_text_entries.some((text) => {
 					if (text.language.name === "en") {
-						description = text.flavor_text;
+						description = text.flavor_text.replace("", " ");
 					}
 					return description;
 				});
@@ -47,7 +47,11 @@ const PokemonCard = () => {
 			setPokemon((prevState) => {
 				return {
 					...prevState,
-					name: res.data.name,
+					name: res.data.name
+						.toLowerCase()
+						.split(" ")
+						.map((s) => s.charAt(0).toUpperCase() + s.substring(1))
+						.join(" "),
 					id: res.data.id,
 					height: res.data.height,
 					weight: res.data.weight,
@@ -106,22 +110,23 @@ const PokemonCard = () => {
 	const weight = Math.round((pokemon.weight * 0.220462 + 0.0001) * 100) / 100;
 
 	return (
-		<div className="justify-content-center text-center mt-5 pokemon-card container">
+		<div className="justify-content-center text-center mt-5 container">
 			{isLoading ? (
 				<img className="pokemon-img mb-4" src={loading} alt={pokemon.name} />
 			) : (
 				<div>
 					<h1 className="pokemon-font">
-						{name
+						{pokemon.name}
+						{/* {name
 							.toLowerCase()
 							.split(" ")
 							.map((s) => s.charAt(0).toUpperCase() + s.substring(1))
-							.join(" ")}
+							.join(" ")} */}
 					</h1>
-					<p className="float-right">{pokeTypes}</p>
+					<p className="poke-types">{pokeTypes}</p>
 					<img className="pokemon-img mt-5" src={pokeImg} alt={pokemon.name} />
 					<div className="container">
-						<div className="d-flex justify-content-around font-weight-bold mt-5">
+						<div className="d-flex justify-content-around font-weight-bold mt-5 poke-info">
 							<span>ID: {pokemon.id}</span>
 							<span>HEIGHT: {height}ft</span>
 							<span>WEIGHT: {weight}lbs</span>
@@ -129,8 +134,8 @@ const PokemonCard = () => {
 					</div>
 					<p className="mt-5">{pokeDescription}</p>
 					<div className="container mt-5 text-left pokemond-abilities">
-						<h3 className="mb-3">
-							<span>&#8226;</span> Abilities
+						<h3 className="mb-3 text-center">
+							<u>Abilities</u>
 						</h3>
 						<div>{pokeAbilities}</div>
 					</div>

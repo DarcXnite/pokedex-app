@@ -1,5 +1,5 @@
 .pokemon-card {
-    width: 500px;
+    width: 100%;
 }
 
 .pokemon-abilities h5::first-letter {
@@ -10,6 +10,10 @@
     text-transform: uppercase;
 }
 
-.text-stroke {
-    -webkit-text-stroke: 1px black;
+.poke-types {
+    position: absolute;
+}
+
+.poke-info {
+    width: auto;
 }

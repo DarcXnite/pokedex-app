@@ -18,7 +18,7 @@ const Pokemon = ({ name, url, isLoading }) => {
 
 	return (
 		<div className="col col-lg-2 text-center mb-5">
-			<Link className="pokemon-text-dec" to={`${name}/${pokeIndex}`}>
+			<Link className="pokemon-text-dec" to={`pokemon/${pokeIndex}`}>
 				<h6 className="text-left ml-3 pokemon-font"># {pokeIndex}</h6>
 				{isLoading ? (
 					<img className="pokemon-img mb-4" src={loading} alt={name} />

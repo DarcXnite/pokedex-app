@@ -1,0 +1,52 @@
+.autocomplete input {
+    width: 100%;
+    margin: 0;
+    border: 1px solid grey;
+    box-sizing: border-box;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.autocomplete ul {
+    width: 211px;
+    z-index: 5;
+    position: absolute;
+    list-style-type: none;
+    margin: 0;
+    padding-left: 0;
+    background: white;
+    border: 1px solid grey;
+    border-radius: 0 0 5px 5px;
+}
+
+@media screen and (max-width: 575px) {
+    .autocomplete ul {
+        width: 203px;
+    }
+}
+
+/* fix box sizing */
+
+.autocomplete li {
+    padding: .375rem .75rem;
+    padding-top: 0.375rem;
+    padding-right: 0.75rem;
+    padding-bottom: 0.375rem;
+    cursor: pointer;
+}
+
+.autocomplete li:hover {
+    background-color: rgba(128, 128, 128, 0.28);
+}
+
+.highlight {
+    background-color: rgba(128, 128, 128, 0.28);
+}
+
+.form-inline .form-control {
+    width: 100%;
+}
+
+.searchBtn {
+    margin-left: 5px;
+}
