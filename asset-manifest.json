@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/pokedex-app/static/css/main.33427479.chunk.css",
-    "main.js": "/pokedex-app/static/js/main.70880990.chunk.js",
-    "main.js.map": "/pokedex-app/static/js/main.70880990.chunk.js.map",
+    "main.css": "/pokedex-app/static/css/main.8ffa1329.chunk.css",
+    "main.js": "/pokedex-app/static/js/main.2e71d5b5.chunk.js",
+    "main.js.map": "/pokedex-app/static/js/main.2e71d5b5.chunk.js.map",
     "runtime-main.js": "/pokedex-app/static/js/runtime-main.95c26b07.js",
     "runtime-main.js.map": "/pokedex-app/static/js/runtime-main.95c26b07.js.map",
     "static/css/2.150d169a.chunk.css": "/pokedex-app/static/css/2.150d169a.chunk.css",
@@ -10,7 +10,7 @@
     "static/js/2.08e9a60e.chunk.js.map": "/pokedex-app/static/js/2.08e9a60e.chunk.js.map",
     "index.html": "/pokedex-app/index.html",
     "static/css/2.150d169a.chunk.css.map": "/pokedex-app/static/css/2.150d169a.chunk.css.map",
-    "static/css/main.33427479.chunk.css.map": "/pokedex-app/static/css/main.33427479.chunk.css.map",
+    "static/css/main.8ffa1329.chunk.css.map": "/pokedex-app/static/css/main.8ffa1329.chunk.css.map",
     "static/js/2.08e9a60e.chunk.js.LICENSE.txt": "/pokedex-app/static/js/2.08e9a60e.chunk.js.LICENSE.txt",
     "static/media/flying_pikachu.cb56e344.gif": "/pokedex-app/static/media/flying_pikachu.cb56e344.gif"
   },
@@ -18,7 +18,7 @@
     "static/js/runtime-main.95c26b07.js",
     "static/css/2.150d169a.chunk.css",
     "static/js/2.08e9a60e.chunk.js",
-    "static/css/main.33427479.chunk.css",
-    "static/js/main.70880990.chunk.js"
+    "static/css/main.8ffa1329.chunk.css",
+    "static/js/main.2e71d5b5.chunk.js"
   ]
 }
