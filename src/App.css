@@ -10,11 +10,11 @@
   flex-direction: column;
   align-items: center;
   font-size: calc(30px + 2vmin);
-  font-family: Pokemon !important;
+  font-family: "Pokemon" !important;
 }
 
 .pokemon-font {
-  font-family: Pokemon !important;
+  font-family: "Pokemon" !important;
 }
 
 .pointer:hover {
